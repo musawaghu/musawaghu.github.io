@@ -169,9 +169,9 @@ window.PROJECTS = {
         ["Threads (GIL), 16 tiles", "63.3 s", "36.7 s / 100.8 s", "52.7 min"],
         { cells: ["Processes, 4 tiles", "20.9 s", "13.1 s / 34.6 s", "17.5 min"], bold: true },
         { cells: ["Processes, 16 tiles", "10.6 s", "7.5 s / 16.2 s", "8.8 min"], bold: true },
-        ["No-GIL Python 3.14t: serial, whole image", "79.5 s", "47.8 s / 127.9 s", "66.2 min"],
-        ["No-GIL Python 3.14t: threads, 4 tiles", "24.1 s", "15.0 s / 39.2 s", "20.1 min"],
-        ["No-GIL Python 3.14t: threads, 16 tiles", "13.5 s", "9.2 s / 22.0 s", "11.3 min"]
+        { label: "No-GIL Python 3.14t:", cells: ["serial, whole image", "79.5 s", "47.8 s / 127.9 s", "66.2 min"] },
+        { label: "No-GIL Python 3.14t:", cells: ["threads, 4 tiles", "24.1 s", "15.0 s / 39.2 s", "20.1 min"] },
+        { label: "No-GIL Python 3.14t:", cells: ["threads, 16 tiles", "13.5 s", "9.2 s / 22.0 s", "11.3 min"] }
       ],
       note: "The regular-Python rows ran on Python 3.14 with the GIL. Images vary in size and texture, which is why the times vary so much from image to image."
     },

@@ -49,6 +49,7 @@ function section(heading, content) {
 
 // A data table: heading, intro sentence, header row, body rows, and a footnote.
 // A row is an array of cells, or { cells, bold: true } to emphasise it.
+// An optional row `label` is shown in italics before the first cell's text.
 // The wrapper scrolls sideways on narrow screens instead of squashing the columns.
 function tableSection({ heading, intro, columns, rows, note }) {
   const wrap = el("section", "case-section");
@@ -61,6 +62,7 @@ function tableSection({ heading, intro, columns, rows, note }) {
   rows.forEach((row) => {
     const tr = el("tr", row.bold ? "is-bold" : null);
     (row.cells || row).forEach((cell) => tr.append(el("td", null, cell)));
+    if (row.label) tr.cells[0].prepend(el("em", null, row.label), " ");
     body.append(tr);
   });
   const head = el("thead");
