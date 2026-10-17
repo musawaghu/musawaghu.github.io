@@ -469,7 +469,8 @@ img, video { display: block; max-width: 100%; }
   border-radius: 50%;
 }
 
-.case-body { display: grid; gap: 26px; }
+/* minmax(0, 1fr) stops a wide child (the results table) from stretching the column past the dialog */
+.case-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; }
 .case-header { display: grid; gap: 8px; padding-right: 40px; }
 .case-number { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.6px; color: var(--cobalt); }
 .case-title { font-family: var(--serif); font-size: 2.8rem; font-weight: 400; line-height: 1.05; letter-spacing: -0.8px; }
@@ -502,6 +503,19 @@ img, video { display: block; max-width: 100%; }
 .case-media figcaption { margin-top: 6px; font-size: 0.78rem; color: var(--muted); }
 
 .case-note { font-size: 0.85rem; color: var(--muted); }
+
+/* Results table (e.g. Parallel SIFT processing times); scrolls sideways on phones */
+.case-table-wrap { overflow-x: auto; margin: 12px 0; }
+.case-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.case-table th,
+.case-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--divider);
+  text-align: left;
+  white-space: nowrap;
+}
+.case-table th { font-weight: 600; color: var(--muted); }
+.case-table .is-bold td { font-weight: 700; }
 
 .case-links { display: flex; flex-wrap: wrap; gap: 12px; }
 .case-link {

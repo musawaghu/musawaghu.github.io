@@ -47,6 +47,30 @@ function section(heading, content) {
   return wrap;
 }
 
+// A data table: heading, intro sentence, header row, body rows, and a footnote.
+// A row is an array of cells, or { cells, bold: true } to emphasise it.
+// The wrapper scrolls sideways on narrow screens instead of squashing the columns.
+function tableSection({ heading, intro, columns, rows, note }) {
+  const wrap = el("section", "case-section");
+  wrap.append(el("h3", null, heading), el("p", null, intro));
+  const scroller = el("div", "case-table-wrap");
+  const table = el("table", "case-table");
+  const headRow = el("tr");
+  columns.forEach((name) => headRow.append(el("th", null, name)));
+  const body = el("tbody");
+  rows.forEach((row) => {
+    const tr = el("tr", row.bold ? "is-bold" : null);
+    (row.cells || row).forEach((cell) => tr.append(el("td", null, cell)));
+    body.append(tr);
+  });
+  const head = el("thead");
+  head.append(headRow);
+  table.append(head, body);
+  scroller.append(table);
+  wrap.append(scroller, el("p", "case-note", note));
+  return wrap;
+}
+
 function mediaItem(item) {
   const figure = el("figure", "case-media");
   if (item.type === "video") {
@@ -85,6 +109,7 @@ function renderCase(project) {
   header.querySelector(".case-title").id = "case-title";
 
   const parts = [header, section("What it is", project.overview), section("The problem", project.problem), section("How I solved it", project.solution), section("Results", project.results)];
+  if (project.table) parts.push(tableSection(project.table));
   if (project.lessons) parts.push(section("Lessons learned", project.lessons));
 
   if (project.media.length) {
