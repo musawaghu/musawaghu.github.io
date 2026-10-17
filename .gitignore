@@ -1,0 +1,12 @@
+.env
+.env.*
+.venv/
+.idea/
+__pycache__/
+
+# Local notes and tooling, not part of the site
+CLAUDE.md
+website-design.md
+project_repo_link.md
+tasks/
+main.py

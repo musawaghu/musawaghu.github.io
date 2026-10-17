@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Musa — Projects</title>
+  <meta name="description" content="Musa's portfolio: AI, machine learning, data and full-stack projects.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2318203A'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%233054DE'/%3E%3C/svg%3E">
+
+  <!-- Instrument Serif (Google Fonts) and Satoshi (Fontshare) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="projects.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+<main class="portfolio">
+
+  <nav class="portfolio-nav" aria-label="Main">
+    <a class="brand" href="#top" aria-label="Musa, back to top">musa<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">My process</a></li>
+      <li><a class="nav-cta" href="#contact">Work with me ↗</a></li>
+    </ul>
+  </nav>
+
+  <header class="portfolio-heading" id="work">
+    <h1>Projects I’ve worked on</h1>
+    <p>A collection of thoughtful work, problem-solving, and details made to last.</p>
+  </header>
+
+  <section class="collection" aria-label="Projects">
+    <div class="content">
+      <!-- Each pill opens the case study for its data-project; hover/focus lifts the matching folder -->
+      <ul class="project-list">
+        <li><button class="project-card" type="button" data-project="firmflow">
+          <span class="project-number">01</span>
+          <span class="project-text">
+            <span class="project-title">FirmFlow</span>
+            <span class="project-desc">AI onboarding that never makes things up. Grounded training for architecture firms.</span>
+          </span>
+          <span class="project-arrow" aria-hidden="true">↗</span>
+        </button></li>
+        <li><button class="project-card" type="button" data-project="sihha">
+          <span class="project-number">02</span>
+          <span class="project-text">
+            <span class="project-title">Sihha</span>
+            <span class="project-desc">Clinical NLP, kept private. Structured records and explainable readmission risk.</span>
+          </span>
+          <span class="project-arrow" aria-hidden="true">↗</span>
+        </button></li>
+        <li><button class="project-card" type="button" data-project="jobsite-checkin">
+          <span class="project-number">03</span>
+          <span class="project-text">
+            <span class="project-title">Jobsite Check-In</span>
+            <span class="project-desc">Attendance you can trust. Face recognition built for construction sites.</span>
+          </span>
+          <span class="project-arrow" aria-hidden="true">↗</span>
+        </button></li>
+        <li><button class="project-card" type="button" data-project="brain-tumor">
+          <span class="project-number">04</span>
+          <span class="project-text">
+            <span class="project-title">Brain Tumor Detection</span>
+            <span class="project-desc">Screening MRI scans with deep learning. And making the result trustworthy.</span>
+          </span>
+          <span class="project-arrow" aria-hidden="true">↗</span>
+        </button></li>
+        <li><button class="project-card" type="button" data-project="parallel-sift">
+          <span class="project-number">05</span>
+          <span class="project-text">
+            <span class="project-title">Parallel SIFT</span>
+            <span class="project-desc">Why more threads didn’t help. And what did: 6.65× faster.</span>
+          </span>
+          <span class="project-arrow" aria-hidden="true">↗</span>
+        </button></li>
+        <li><button class="project-card" type="button" data-project="airbnb">
+          <span class="project-number">06</span>
+          <span class="project-text">
+            <span class="project-title">Airbnb Data Analysis</span>
+            <span class="project-desc">What drives price in NYC. 48,895 listings in SQL, Python and Power BI.</span>
+          </span>
+          <span class="project-arrow" aria-hidden="true">↗</span>
+        </button></li>
+      </ul>
+    </div>
+
+    <div class="archive">
+      <div class="archive-stage">
+        <img class="box-back" src="assets/my-works-box.webp" alt="" aria-hidden="true">
+
+        <!-- Folders, front (01) to back (06); positions come from --i in styles.css -->
+        <div class="folder-deck">
+          <button class="project-folder" type="button" data-project="firmflow" style="--i: 0" aria-label="Open FirmFlow case study">
+            <span class="folder-tab">01 / FirmFlow</span>
+            <span class="folder-face">
+              <small>PROJECT / 01</small>
+              <strong class="folder-logo">Firm<br>Flow</strong>
+              <span class="folder-open">OPEN FILE ↗</span>
+            </span>
+          </button>
+          <button class="project-folder" type="button" data-project="sihha" style="--i: 1" aria-label="Open Sihha case study">
+            <span class="folder-tab">02 / Sihha</span>
+            <span class="folder-face">
+              <small>PROJECT / 02</small>
+              <strong class="folder-logo">Sihha</strong>
+              <span class="folder-open">OPEN FILE ↗</span>
+            </span>
+          </button>
+          <button class="project-folder" type="button" data-project="jobsite-checkin" style="--i: 2" aria-label="Open Jobsite Check-In case study">
+            <span class="folder-tab">03 / Jobsite Check-In</span>
+            <span class="folder-face">
+              <small>PROJECT / 03</small>
+              <strong class="folder-logo">Jobsite<br>Check-In</strong>
+              <span class="folder-open">OPEN FILE ↗</span>
+            </span>
+          </button>
+          <button class="project-folder" type="button" data-project="brain-tumor" style="--i: 3" aria-label="Open Brain Tumor Detection case study">
+            <span class="folder-tab">04 / Brain Tumor</span>
+            <span class="folder-face">
+              <small>PROJECT / 04</small>
+              <strong class="folder-logo">Brain Tumor<br>Detection</strong>
+              <span class="folder-open">OPEN FILE ↗</span>
+            </span>
+          </button>
+          <button class="project-folder" type="button" data-project="parallel-sift" style="--i: 4" aria-label="Open Parallel SIFT case study">
+            <span class="folder-tab">05 / Parallel SIFT</span>
+            <span class="folder-face">
+              <small>PROJECT / 05</small>
+              <strong class="folder-logo">Parallel<br>SIFT</strong>
+              <span class="folder-open">OPEN FILE ↗</span>
+            </span>
+          </button>
+          <button class="project-folder" type="button" data-project="airbnb" style="--i: 5" aria-label="Open Airbnb Data Analysis case study">
+            <span class="folder-tab">06 / Airbnb</span>
+            <span class="folder-face">
+              <small>PROJECT / 06</small>
+              <strong class="folder-logo">Airbnb<br>Analysis</strong>
+              <span class="folder-open">OPEN FILE ↗</span>
+            </span>
+          </button>
+        </div>
+
+        <img class="box-front" src="assets/my-works-box.webp" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+
+  <section class="design-process" id="process">
+    <div class="process-header">
+      <h2>My process</h2>
+      <p>Understand the problem. Build the simplest thing that works. Measure it.</p>
+    </div>
+
+    <div class="process-frame">
+      <ol class="process-surface">
+        <li class="process-card">
+          <span class="process-label">01 / UNDERSTAND</span>
+          <h3>Start with the right questions.</h3>
+          <p>Figure out who it’s for, what’s slow or broken, and what success looks like.</p>
+          <span class="sticker">Problem before code.</span>
+          <svg class="process-arrow arrow-one" viewBox="0 0 60 40" aria-hidden="true" focusable="false">
+            <path d="M4 30 C 18 6, 40 6, 54 22 M54 22 L44 20 M54 22 L52 12" />
+          </svg>
+        </li>
+        <li class="process-card">
+          <span class="process-label">02 / BUILD</span>
+          <h3>Ship the simplest thing that works.</h3>
+          <p>Pick the right tools, build a working version, and keep it tested.</p>
+          <span class="sticker">Prototype → Production</span>
+          <svg class="process-arrow arrow-two" viewBox="0 0 60 40" aria-hidden="true" focusable="false">
+            <path d="M4 30 C 18 6, 40 6, 54 22 M54 22 L44 20 M54 22 L52 12" />
+          </svg>
+        </li>
+        <li class="process-card">
+          <span class="process-label">03 / MEASURE</span>
+          <h3>Measure it. Then make it better.</h3>
+          <p>Benchmark, evaluate, harden, and iterate on what the numbers say.</p>
+          <span class="sticker">Test. Learn. Refine.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2>Work with me</h2>
+    <p>Have a project in mind? Let’s talk.</p>
+    <ul class="contact-links">
+      <li><a href="mailto:musawaghu@gmail.com">musawaghu@gmail.com</a></li>
+      <li><a href="https://github.com/musawaghu" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- Case-study overlay; script.js fills .case-body from projects.js -->
+<dialog id="case-overlay" aria-labelledby="case-title">
+  <div class="case-inner">
+    <button class="case-close" type="button" aria-label="Close case study">×</button>
+    <div class="case-body"></div>
+  </div>
+</dialog>
+</body>
+</html>

@@ -1,0 +1,557 @@
+/* ============================================================
+   Design tokens (website-design.md §1)
+   ============================================================ */
+:root {
+  --white: #ffffff;
+  --navy: #18203a;
+  --cobalt: #3054de;
+  --muted: #536083;
+  --divider: rgba(24, 32, 58, 0.14);
+
+  --card-1: #f1edff; --num-1: #7665b5; --folder-1: #ff7869;
+  --card-2: #fff1ad; --num-2: #9d7720; --folder-2: #fff1ad;
+  --card-3: #edf3ff; --num-3: #4b76b5; --folder-3: #b9d9ff;
+  --card-4: #ffe8f4; --num-4: #a35d84; --folder-4: #c9b8ff;
+
+  --lime: #c8ff48;
+  --periwinkle: #8296eb;
+
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Satoshi", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --nav-height: 72px;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+/* Lock background scroll while the case study is open */
+html:has(dialog[open]) { overflow: hidden; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+img, video { display: block; max-width: 100%; }
+
+:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+
+/* Keep anchored headings visible below the sticky navbar */
+#work, #process, #contact { scroll-margin-top: calc(var(--nav-height) + 24px); }
+
+/* ============================================================
+   Page shell (§3)
+   ============================================================ */
+.portfolio {
+  width: 100%;
+  min-height: 100svh;
+  padding: 12px 5% 32px;
+}
+
+/* ============================================================
+   Sticky navigation (§4)
+   ============================================================ */
+.portfolio-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: var(--nav-height);
+  padding: 16px 0;
+  margin-bottom: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 28px;
+  background: var(--white);
+  border-bottom: 1px solid var(--divider);
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: var(--navy);
+  text-decoration: none;
+  line-height: 1;
+}
+.brand span { color: var(--cobalt); }
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a { text-decoration: none; }
+
+.nav-cta {
+  display: inline-block;
+  padding: 12px 22px;
+  color: var(--white);
+  border: 1px solid #263357;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #596684 0%, #34415f 46%, #1b2745 50%, #263454 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* ============================================================
+   Project heading (§5)
+   ============================================================ */
+.portfolio-heading h1 {
+  margin-bottom: 12px;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+.portfolio-heading p {
+  max-width: 600px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Collection: project list + archive (§3, §6)
+   ============================================================ */
+.collection {
+  padding-top: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  column-gap: 64px;
+  align-items: start;
+}
+
+.project-list { display: grid; gap: 22px; }
+
+.project-card {
+  width: 100%;
+  min-height: 100px;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 36px;
+  align-items: center;
+  column-gap: 12px;
+  text-align: left;
+  background: var(--card-bg);
+  border: 1px solid rgba(24, 32, 58, 0.05);
+  border-radius: 16px;
+}
+
+/* Card colours cycle through the four spec palettes */
+.project-list li:nth-child(4n + 1) .project-card { --card-bg: var(--card-1); --num: var(--num-1); }
+.project-list li:nth-child(4n + 2) .project-card { --card-bg: var(--card-2); --num: var(--num-2); }
+.project-list li:nth-child(4n + 3) .project-card { --card-bg: var(--card-3); --num: var(--num-3); }
+.project-list li:nth-child(4n + 4) .project-card { --card-bg: var(--card-4); --num: var(--num-4); }
+
+.project-number {
+  color: var(--num);
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+.project-text { display: grid; gap: 7px; }
+.project-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+.project-desc {
+  max-width: 340px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.project-arrow {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--divider);
+  border-radius: 50%;
+  color: var(--navy);
+}
+
+/* ============================================================
+   Archive box (§7–§10)
+   ============================================================ */
+.archive {
+  width: 100%;
+  max-width: 570px;
+  margin: -44px auto 0;
+}
+
+.archive-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  isolation: isolate;
+  container-type: inline-size;
+}
+
+.box-back, .box-front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.box-back {
+  z-index: 0;
+  clip-path: polygon(4.3% 43%, 39.2% 8.2%, 93.4% 13.8%, 93.4% 61.8%, 71.6% 96.2%, 4.3% 78%);
+}
+/* Front shell sits above every folder (highest folder z-index is 7) */
+.box-front {
+  z-index: 10;
+  clip-path: polygon(4.3% 43%, 71.5% 57.8%, 93.4% 13.8%, 93.4% 61.8%, 71.6% 96.2%, 4.3% 78%);
+}
+
+/* No z-index/transform here, so folders share the stage's stacking context */
+.folder-deck { position: absolute; inset: 0; }
+
+/* Six folders step diagonally up and right; --i is set inline (0 = front).
+   Calibrated so every folder base stays behind the box front, even when lifted. */
+.project-folder {
+  position: absolute;
+  left: calc(7% + var(--i) * 3.6%);
+  top: calc(31% - var(--i) * 4%);
+  z-index: calc(6 - var(--i));
+  width: 56%;
+  height: 52%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform-origin: 50% 100%;
+  transform: translateY(var(--lift, 0px)) skewY(14deg);
+  transition: transform 0.35s ease;
+}
+.project-folder:focus-visible { outline: none; }
+.project-folder:focus-visible .folder-face { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+
+.project-folder:nth-child(4n + 1) { --folder: var(--folder-1); }
+.project-folder:nth-child(4n + 2) { --folder: var(--folder-2); }
+.project-folder:nth-child(4n + 3) { --folder: var(--folder-3); }
+.project-folder:nth-child(4n + 4) { --folder: var(--folder-4); }
+
+/* Hover states (§11): archive hover / pill hover raise all; the target rises further.
+   Lifts are in cqw so they scale with the box: 14px / 48px at the 570px desktop stage. */
+.archive:hover .project-folder,
+.archive.is-open .project-folder { --lift: -2.46cqw; }
+
+.archive .project-folder:hover,
+.archive .project-folder:focus-visible,
+.archive .project-folder.is-active { --lift: -8.42cqw; z-index: 7; }
+
+.folder-tab {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  margin-bottom: -2px; /* tab covers the face's top border where they join */
+  padding: 1.4cqw 1.75cqw; /* 8px 10px at the desktop stage; shrinks so stacked labels stay legible */
+  line-height: 1.1;
+  background: var(--folder);
+  border: 2px solid var(--navy);
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+  font-size: clamp(0.6rem, 1.9cqw, 0.78rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.folder-face {
+  flex: 1; /* fills the remaining height, i.e. 100% minus the tab */
+  align-self: stretch;
+  padding: clamp(12px, 3.5cqw, 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--folder);
+  border: 2px solid var(--navy);
+  border-radius: 0 12px 12px 12px;
+}
+.folder-face small {
+  font-size: clamp(0.55rem, 1.8cqw, 0.72rem);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.folder-logo {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 6cqw, 2.2rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.folder-open {
+  font-size: clamp(0.55rem, 1.8cqw, 0.72rem);
+  font-weight: 700;
+}
+
+/* ============================================================
+   Process section (§13)
+   ============================================================ */
+.design-process { margin-top: 24px; }
+
+.process-header {
+  margin-bottom: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+.process-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.6px;
+}
+.process-header p { color: var(--muted); font-size: 0.95rem; }
+
+.process-frame {
+  padding-left: 32px;
+  background: var(--lime);
+  border-radius: 38px;
+  overflow: hidden;
+}
+
+.process-surface {
+  padding: 40px 34px 64px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+  background: #fcfcfa;
+  border-top: 7px solid var(--navy);
+  border-top-left-radius: 48px;
+}
+
+.process-card {
+  position: relative;
+  padding: 26px 20px 42px;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  background: #f0f0ef;
+  border-radius: 28px;
+}
+.process-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.6px; color: var(--muted); }
+.process-card h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; line-height: 1.15; }
+.process-card p { font-size: 0.9rem; line-height: 1.5; color: var(--muted); }
+
+/* Stickers hang off the card bottom and dangle on hover */
+.sticker {
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  translate: -50% 0;
+  rotate: var(--rest);
+  transform-origin: top center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--lime);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.process-card:nth-child(1) .sticker { --rest: -5deg; }
+.process-card:nth-child(2) .sticker { --rest: 2deg; background: var(--periwinkle); }
+.process-card:nth-child(3) .sticker { --rest: 5deg; }
+.sticker:hover { animation: dangle 1.15s ease-in-out infinite; }
+
+@keyframes dangle {
+  0%   { rotate: 0deg; }
+  25%  { rotate: 8deg; }
+  50%  { rotate: -6deg; }
+  75%  { rotate: 3deg; }
+  100% { rotate: 0deg; }
+}
+
+/* Decorative curved arrows across the gaps between cards */
+.process-arrow {
+  position: absolute;
+  top: 38%;
+  right: -42px;
+  width: 50px;
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.arrow-one { stroke: #ecab16; }
+.arrow-two { stroke: #efaccb; }
+
+/* ============================================================
+   Contact (§14)
+   ============================================================ */
+.contact-section {
+  margin-top: 48px;
+  padding: 40px;
+  background: var(--card-1);
+  border-radius: 24px;
+}
+.contact-section h2 {
+  margin-bottom: 8px;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 400;
+}
+.contact-section p { font-size: 0.95rem; line-height: 1.5; }
+.contact-links {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-weight: 500;
+}
+.contact-links a { color: var(--cobalt); text-underline-offset: 3px; }
+
+/* ============================================================
+   Case-study dialog (§12)
+   ============================================================ */
+#case-overlay {
+  width: calc(100% - 32px);
+  max-width: 780px;
+  max-height: 85svh;
+  padding: 0; /* padding lives on .case-inner so backdrop clicks are detectable */
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid #d9dce4;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#case-overlay::backdrop { background: rgba(24, 32, 58, 0.42); }
+
+.case-inner {
+  max-height: 85svh;
+  padding: 36px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Positioned against the dialog, so it stays put while .case-inner scrolls */
+.case-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  line-height: 1;
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 50%;
+}
+
+.case-body { display: grid; gap: 26px; }
+.case-header { display: grid; gap: 8px; padding-right: 40px; }
+.case-number { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.6px; color: var(--cobalt); }
+.case-title { font-family: var(--serif); font-size: 2.8rem; font-weight: 400; line-height: 1.05; letter-spacing: -0.8px; }
+.case-type { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+
+.case-section h3 {
+  margin-bottom: 10px;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.case-section p,
+.case-section li { font-size: 0.92rem; line-height: 1.65; }
+.case-section ul { display: grid; gap: 8px; padding-left: 1.2em; list-style: disc; }
+
+.case-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.case-gallery:has(video) { grid-template-columns: 1fr; }
+.case-media { margin: 0; }
+.case-media img,
+.case-media video {
+  width: 100%;
+  border: 1px solid #d9dce4;
+  border-radius: 12px;
+  background: #f4f5f8;
+}
+.case-media figcaption { margin-top: 6px; font-size: 0.78rem; color: var(--muted); }
+
+.case-note { font-size: 0.85rem; color: var(--muted); }
+
+.case-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.case-link {
+  padding: 10px 18px;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.case-link:first-child { background: var(--navy); color: var(--white); }
+
+/* ============================================================
+   Responsive (§15)
+   ============================================================ */
+@media (max-width: 799px) {
+  .collection { column-gap: 24px; }
+  .portfolio-nav { flex-wrap: wrap; }
+}
+
+@media (max-width: 619px) {
+  .portfolio { padding: 8px 20px 28px; }
+  .portfolio-nav { margin-bottom: 59px; }
+  .brand { font-size: 30px; }
+  .nav-links { font-size: 13px; gap: 10px 18px; }
+  .portfolio-heading h1 { font-size: 2.2rem; }
+
+  .collection { grid-template-columns: 1fr; row-gap: 30px; padding-top: 22px; }
+  .project-list { gap: 18px; }
+  .project-card { padding: 16px; min-height: 100px; }
+  .project-desc { font-size: 0.8rem; }
+
+  /* Box and folders scale together: all geometry is relative to the stage */
+  .archive { max-width: 400px; margin-top: 0; padding-top: 48px; transform: translateY(20px); }
+
+  .design-process { margin-top: 36px; }
+  .process-surface { grid-template-columns: 1fr; gap: 64px; padding: 32px 20px 64px; }
+  /* Arrows point down between stacked cards, offset right of the centred sticker */
+  .process-arrow { top: auto; right: 12%; bottom: -60px; rotate: 90deg; }
+
+  .contact-section { padding: 28px 24px; }
+  .case-inner { padding: 28px 22px; }
+  .case-title { font-size: 2.2rem; }
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .project-folder { transition: none; }
+  .sticker:hover { animation: none; }
+}
