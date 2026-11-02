@@ -2,8 +2,31 @@
 // Every fact and number here comes from the project's own README / docs.
 // A string renders as a paragraph; an array renders as a bullet list.
 window.PROJECTS = {
-  "firmflow": {
+  // Copy comes from the "Suspense Resolver: Project Brief" doc, not a README: the repo is private.
+  // Per the brief, keep media and links empty until the organizers settle IP and sharing.
+  "suspense-resolver": {
     number: "01",
+    title: "Suspense Resolver",
+    type: "Solo project · Warner Music Group AI Hackathon · October 2026 · Python, Claude API (agentic tool use), RapidFuzz, Streamlit, SQLite, Docker, DigitalOcean, Claude Code",
+    overview: "Suspense Resolver is an AI tool that works out which song earned streaming money that arrived unlabelled, so a person can approve the fix and the money can reach the right artist.",
+    problem: "Streaming services pay labels through revenue files, and each row should say which recording earned the money. When that code is missing or wrong, the money sits in “suspense” until someone finds the right song by hand.",
+    solution: "Simple rules handle most rows instantly, and a bounded AI agent investigates the near misses. Every suggestion shows its evidence, and a person approves it in one click. When the tool isn't sure, it says so instead of guessing, because a wrong match can pay the wrong artist.",
+    resultsHeading: "Results on synthetic data",
+    results: [
+      "Every confident match was right on 200 held-out test cases.",
+      "It suggested fixes for 74% of 500 unmatched rows and sent the rest to a person.",
+      "In a timed test on 20 cases, the tool made 0 wrong matches. I made 3 by hand.",
+      "It processed a 10-million-row file in 72 seconds at 134 MB of peak memory.",
+      "Testing models before choosing one cut AI cost 34x with the same score on 63 hard cases."
+    ],
+    lessons: "Use AI where it adds judgment, and make it easy for people to trust it.",
+    media: [],
+    links: [],
+    note: "Every name and amount in this project was synthetic. The repo and demo aren't public yet because I still need to clear permission with the organizers. I'm happy to walk through the project on a call."
+  },
+
+  "firmflow": {
+    number: "02",
     title: "FirmFlow",
     type: "AI web app · Hackathon team project · React, TypeScript, FastAPI, Supabase, Claude API",
     overview: "AI onboarding for architecture firms that never makes things up. FirmFlow takes the onboarding material a firm already has and turns it into clear, interactive onboarding. Built at an AEC hackathon by a team of one architect and four computer science students.",
@@ -31,7 +54,7 @@ window.PROJECTS = {
   },
 
   "sihha": {
-    number: "02",
+    number: "03",
     title: "Sihha",
     type: "Clinical NLP + ML · MedGemma, Presidio, scikit-learn, SHAP, React",
     overview: "Clinical NLP middleware that converts discharge summaries and radiology reports into structured, coded records and produces explainable 30-day readmission risk scores, with every fact underlined at the words it came from.",
@@ -62,7 +85,7 @@ window.PROJECTS = {
   },
 
   "jobsite-checkin": {
-    number: "03",
+    number: "04",
     title: "Jobsite Check-In",
     type: "Computer vision web app · FastAPI, PyTorch (MTCNN, FaceNet), YOLO11, SQLite, Docker",
     overview: "Face recognition for construction site attendance: a browser kiosk at the gate and a dashboard for the foreman.",
@@ -105,7 +128,7 @@ window.PROJECTS = {
   },
 
   "brain-tumor": {
-    number: "04",
+    number: "05",
     title: "Brain Tumor Detection",
     type: "Deep learning · PyTorch, ResNet50, Grad-CAM, Gradio, scikit-learn",
     overview: "A transfer-learning classifier (ResNet50, fine-tuned on the PMRAM brain MRI dataset) that tells glioma scans apart from normal scans. A Gradio app shows the prediction, a confidence score, and a Grad-CAM heatmap of the regions that drove the decision.",
@@ -139,7 +162,7 @@ window.PROJECTS = {
   },
 
   "parallel-sift": {
-    number: "05",
+    number: "06",
     title: "Parallel SIFT",
     type: "Research / performance engineering · Python 3.14t (no-GIL), NumPy, multiprocessing",
     overview: "My senior undergraduate research project on parallel feature extraction for content-based image retrieval, rebuilt and re-run in 2026: why more threads didn't help, and what did.",
@@ -192,7 +215,7 @@ window.PROJECTS = {
   },
 
   "airbnb": {
-    number: "06",
+    number: "07",
     title: "Airbnb Data Analysis",
     type: "Data analysis · Python (pandas, Plotly), SQLite, Power BI",
     overview: "An analysis of 48,895 New York City Airbnb listings using Python, SQL and Plotly, with a Power BI dashboard on the same database.",

@@ -38,8 +38,16 @@
     <div class="content">
       <!-- Each pill opens the case study for its data-project; hover/focus lifts the matching folder -->
       <ul class="project-list">
-        <li><button class="project-card" type="button" data-project="firmflow">
+        <li><button class="project-card" type="button" data-project="suspense-resolver">
           <span class="project-number">01</span>
+          <span class="project-text">
+            <span class="project-title">Suspense Resolver</span>
+            <span class="project-desc">An AI tool that finds the song behind streaming money nobody can match, so a person can approve the fix and the right artist gets paid.</span>
+          </span>
+          <span class="project-arrow" aria-hidden="true">↗</span>
+        </button></li>
+        <li><button class="project-card" type="button" data-project="firmflow">
+          <span class="project-number">02</span>
           <span class="project-text">
             <span class="project-title">FirmFlow</span>
             <span class="project-desc">AI onboarding that never makes things up. Grounded training for architecture firms.</span>
@@ -47,7 +55,7 @@
           <span class="project-arrow" aria-hidden="true">↗</span>
         </button></li>
         <li><button class="project-card" type="button" data-project="sihha">
-          <span class="project-number">02</span>
+          <span class="project-number">03</span>
           <span class="project-text">
             <span class="project-title">Sihha</span>
             <span class="project-desc">Clinical NLP, kept private. Structured records and explainable readmission risk.</span>
@@ -55,7 +63,7 @@
           <span class="project-arrow" aria-hidden="true">↗</span>
         </button></li>
         <li><button class="project-card" type="button" data-project="jobsite-checkin">
-          <span class="project-number">03</span>
+          <span class="project-number">04</span>
           <span class="project-text">
             <span class="project-title">Jobsite Check-In</span>
             <span class="project-desc">Attendance you can trust. Face recognition built for construction sites.</span>
@@ -63,7 +71,7 @@
           <span class="project-arrow" aria-hidden="true">↗</span>
         </button></li>
         <li><button class="project-card" type="button" data-project="brain-tumor">
-          <span class="project-number">04</span>
+          <span class="project-number">05</span>
           <span class="project-text">
             <span class="project-title">Brain Tumor Detection</span>
             <span class="project-desc">Screening MRI scans with deep learning. And making the result trustworthy.</span>
@@ -71,7 +79,7 @@
           <span class="project-arrow" aria-hidden="true">↗</span>
         </button></li>
         <li><button class="project-card" type="button" data-project="parallel-sift">
-          <span class="project-number">05</span>
+          <span class="project-number">06</span>
           <span class="project-text">
             <span class="project-title">Parallel SIFT</span>
             <span class="project-desc">Why more threads didn’t help. And what did: 6.65× faster.</span>
@@ -79,7 +87,7 @@
           <span class="project-arrow" aria-hidden="true">↗</span>
         </button></li>
         <li><button class="project-card" type="button" data-project="airbnb">
-          <span class="project-number">06</span>
+          <span class="project-number">07</span>
           <span class="project-text">
             <span class="project-title">Airbnb Data Analysis</span>
             <span class="project-desc">What drives price in NYC. 48,895 listings in SQL, Python and Power BI.</span>
@@ -93,52 +101,60 @@
       <div class="archive-stage">
         <img class="box-back" src="assets/my-works-box.webp" alt="" aria-hidden="true">
 
-        <!-- Folders, front (01) to back (06); positions come from --i in styles.css -->
+        <!-- Folders, front (01) to back (07); positions come from --i in styles.css -->
         <div class="folder-deck">
-          <button class="project-folder" type="button" data-project="firmflow" style="--i: 0" aria-label="Open FirmFlow case study">
-            <span class="folder-tab">01 / FirmFlow</span>
+          <button class="project-folder" type="button" data-project="suspense-resolver" style="--i: 0" aria-label="Open Suspense Resolver case study">
+            <span class="folder-tab">01 / Suspense Resolver</span>
             <span class="folder-face">
               <small>PROJECT / 01</small>
+              <strong class="folder-logo">Suspense<br>Resolver</strong>
+              <span class="folder-open">OPEN FILE ↗</span>
+            </span>
+          </button>
+          <button class="project-folder" type="button" data-project="firmflow" style="--i: 1" aria-label="Open FirmFlow case study">
+            <span class="folder-tab">02 / FirmFlow</span>
+            <span class="folder-face">
+              <small>PROJECT / 02</small>
               <strong class="folder-logo">Firm<br>Flow</strong>
               <span class="folder-open">OPEN FILE ↗</span>
             </span>
           </button>
-          <button class="project-folder" type="button" data-project="sihha" style="--i: 1" aria-label="Open Sihha case study">
-            <span class="folder-tab">02 / Sihha</span>
+          <button class="project-folder" type="button" data-project="sihha" style="--i: 2" aria-label="Open Sihha case study">
+            <span class="folder-tab">03 / Sihha</span>
             <span class="folder-face">
-              <small>PROJECT / 02</small>
+              <small>PROJECT / 03</small>
               <strong class="folder-logo">Sihha</strong>
               <span class="folder-open">OPEN FILE ↗</span>
             </span>
           </button>
-          <button class="project-folder" type="button" data-project="jobsite-checkin" style="--i: 2" aria-label="Open Jobsite Check-In case study">
-            <span class="folder-tab">03 / Jobsite Check-In</span>
+          <button class="project-folder" type="button" data-project="jobsite-checkin" style="--i: 3" aria-label="Open Jobsite Check-In case study">
+            <span class="folder-tab">04 / Jobsite Check-In</span>
             <span class="folder-face">
-              <small>PROJECT / 03</small>
+              <small>PROJECT / 04</small>
               <strong class="folder-logo">Jobsite<br>Check-In</strong>
               <span class="folder-open">OPEN FILE ↗</span>
             </span>
           </button>
-          <button class="project-folder" type="button" data-project="brain-tumor" style="--i: 3" aria-label="Open Brain Tumor Detection case study">
-            <span class="folder-tab">04 / Brain Tumor</span>
+          <button class="project-folder" type="button" data-project="brain-tumor" style="--i: 4" aria-label="Open Brain Tumor Detection case study">
+            <span class="folder-tab">05 / Brain Tumor</span>
             <span class="folder-face">
-              <small>PROJECT / 04</small>
+              <small>PROJECT / 05</small>
               <strong class="folder-logo">Brain Tumor<br>Detection</strong>
               <span class="folder-open">OPEN FILE ↗</span>
             </span>
           </button>
-          <button class="project-folder" type="button" data-project="parallel-sift" style="--i: 4" aria-label="Open Parallel SIFT case study">
-            <span class="folder-tab">05 / Parallel SIFT</span>
+          <button class="project-folder" type="button" data-project="parallel-sift" style="--i: 5" aria-label="Open Parallel SIFT case study">
+            <span class="folder-tab">06 / Parallel SIFT</span>
             <span class="folder-face">
-              <small>PROJECT / 05</small>
+              <small>PROJECT / 06</small>
               <strong class="folder-logo">Parallel<br>SIFT</strong>
               <span class="folder-open">OPEN FILE ↗</span>
             </span>
           </button>
-          <button class="project-folder" type="button" data-project="airbnb" style="--i: 5" aria-label="Open Airbnb Data Analysis case study">
-            <span class="folder-tab">06 / Airbnb</span>
+          <button class="project-folder" type="button" data-project="airbnb" style="--i: 6" aria-label="Open Airbnb Data Analysis case study">
+            <span class="folder-tab">07 / Airbnb</span>
             <span class="folder-face">
-              <small>PROJECT / 06</small>
+              <small>PROJECT / 07</small>
               <strong class="folder-logo">Airbnb<br>Analysis</strong>
               <span class="folder-open">OPEN FILE ↗</span>
             </span>

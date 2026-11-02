@@ -110,7 +110,7 @@ function renderCase(project) {
   );
   header.querySelector(".case-title").id = "case-title";
 
-  const parts = [header, section("What it is", project.overview), section("The problem", project.problem), section("How I solved it", project.solution), section("Results", project.results)];
+  const parts = [header, section("What it is", project.overview), section("The problem", project.problem), section("How I solved it", project.solution), section(project.resultsHeading || "Results", project.results)];
   if (project.table) parts.push(tableSection(project.table));
   if (project.lessons) parts.push(section("Lessons learned", project.lessons));
 

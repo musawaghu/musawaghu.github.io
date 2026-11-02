@@ -225,12 +225,12 @@ img, video { display: block; max-width: 100%; }
 /* No z-index/transform here, so folders share the stage's stacking context */
 .folder-deck { position: absolute; inset: 0; }
 
-/* Six folders step diagonally up and right; --i is set inline (0 = front).
+/* Seven folders step diagonally up and right; --i is set inline (0 = front).
    Calibrated so every folder base stays behind the box front, even when lifted. */
 .project-folder {
   position: absolute;
-  left: calc(7% + var(--i) * 3.6%);
-  top: calc(31% - var(--i) * 4%);
+  left: calc(7% + var(--i) * 3%);
+  top: calc(33% - var(--i) * 3.6%);
   z-index: calc(6 - var(--i));
   width: 56%;
   height: 52%;
@@ -279,6 +279,10 @@ img, video { display: block; max-width: 100%; }
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+/* In a small box the font stops shrinking, so raise the label to clear the tab in front of it */
+@container (max-width: 480px) {
+  .folder-tab { padding-top: 0.6cqw; }
 }
 
 .folder-face {
